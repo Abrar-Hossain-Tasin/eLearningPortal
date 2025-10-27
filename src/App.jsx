@@ -1181,9 +1181,9 @@ function App() {
       // Redirect to appropriate dashboard based on role
       switch (user.role) {
         case 'admin':
-          return <Navigate to="/" />;
+          return <Navigate to="/admin/dashboard" />;
         case 'instructor':
-          return <Navigate to="/" />;
+          return <Navigate to="/instructor/dashboard" />;
         default:
           return <Navigate to="/" />;
       }
@@ -1197,9 +1197,9 @@ function App() {
       // Redirect based on user role
       switch (user.role) {
         case 'admin':
-          return <Navigate to="/admin/dashboard" />;
+          return <Navigate to="/" />;
         case 'instructor':
-          return <Navigate to="/instructor/dashboard" />;
+          return <Navigate to="/" />;
         default:
           return <Navigate to="/" />;
       }
@@ -1243,7 +1243,7 @@ function App() {
             <Route 
               path="/" 
               element={
-                <ProtectedRoute allowedRoles={['user']}>
+                  <ProtectedRoute allowedRoles={['user', 'instructor', 'admin']}>
                   <Home />
                 </ProtectedRoute>
               } 
